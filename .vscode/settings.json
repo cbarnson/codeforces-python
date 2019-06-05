@@ -1,0 +1,44 @@
+{
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "119",
+        "--experimental"
+    ],
+    "python.formatting.autopep8Path": ".env\\Scripts\\autopep8",
+    "python.formatting.provider": "autopep8",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": ".env\\Scripts\\flake8",
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E402,F841,F401,E302,E305",
+    ],
+    "python.linting.pep8Args": [
+        "--ignore=E303",
+        "--ignore=E501",
+        "--max-line-length=140",
+        "--ignore=W391"
+    ],
+    "python.linting.pep8Enabled": false,
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylintPath": ".env\\Scripts\\pylint",
+    "python.pythonPath": ".env\\Scripts\\python.exe",
+    "python.sortImports.args": [
+        "-rc",
+        "--atomic"
+    ],
+    "python.terminal.activateEnvironment": true,
+    "python.venvPath": ".env",
+    "python.workspaceSymbols.enabled": true,
+    "search.exclude": {
+        "**/.env": true,
+        "**/__pycache__": true,
+        "**/bower_components": true,
+        "**/node_modules": true
+    },
+    "vsintellicode.python.completionsEnabled": true
+}

@@ -1,0 +1,1 @@
+These are some books/articles/guides I've collected over the years, they are readily available on the internet, and are only here for convenience.  I'm excluding Competitive Programming 3 by Halim here, but you can find it online (it's a great book!).
