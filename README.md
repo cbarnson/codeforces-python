@@ -5,6 +5,8 @@ This project contains CodeForces solutions and related source code, tips, tricks
 
 ## Getting started
 
+![](img/demo.gif)
+
 I have a utility batch script `new.cmd` in the root folder, which eliminates the hassle of copying problem input/output into local files, as well as making a copy of a solution template.  If you frequently use a number of utility functions in all your solutions, throw the boilerplate code into `bin/default_template.py`.  At the time of this writing (June 4, 2019) I'm mostly working in a Windows environment, so most of the scripts and whatnot cater to that.
 
 Start working on a new problem by running `new.cmd 123 A`, for example, which pulls the input/output files for problem `123A` *(Most CodeForces problems follow the labeling pattern of `<number><letter>`, for contests you'll see the number is the same, but letter specifies the problem of that set; my script takes it in the form of two args for convenience)*.

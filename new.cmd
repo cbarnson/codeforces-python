@@ -21,22 +21,14 @@ REM Use these as you like
 SET "YYYYMMDD=%DATE.YEAR%.%DATE.MONTH%.%DATE.DAY%"
 SET "YYYYMMDD_HHMMSS=%DATE.YEAR%%DATE.MONTH%%DATE.DAY%_%DATE.HOUR%%DATE.MINUTE%%DATE.SECOND%"
 
+REM Prepend some common header information
+ECHO # Problem #    : %1%2 > %1%2.py
+ECHO # Created on   : %YYYYMMDD% >> %1%2.py
+
 REM Copy our template to a new file and name it the problem id
 IF EXIST %PYTHON_TEMPLATE% (
-    GOTO :CONTINUE
-) ELSE (
-    TYPE NUL> %1%2.py
-    GOTO :EMPTY_TEMPLATE
+    TYPE %PYTHON_TEMPLATE% >> %1%2.py
 )
-
-:CONTINUE
-COPY %PYTHON_TEMPLATE% %1%2.py
-
-:EMPTY_TEMPLATE
-
-REM Prepend some common header information
-ECHO # Problem #    : %1%2 >> %1%2.py
-ECHO # Created on   : %YYYYMMDD% >> %1%2.py
 
 REM TODO: cleanup old files here
 
