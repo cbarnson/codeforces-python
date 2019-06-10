@@ -20,9 +20,19 @@ class CodeforcesSingleProblemParser(HTMLParser):
         self.case_type = None
         self.start_copy = False
         self.end_line = False
+        self.problem_title = ''
+        self.start_title = False
+        self.start_header = False
+        self.title_found = False
 
     def handle_starttag(self, tag, attrs):
         if tag == 'div':
+            if attrs == [('class', 'header')] and not self.title_found:
+                self.start_header = True
+
+            if attrs == [('class', 'title')] and self.start_header and not self.title_found:
+                self.start_title = True
+
             if attrs == [('class', 'input')]:
                 self.case_counter += 1
                 self.case_type = 'in'
@@ -69,6 +79,12 @@ class CodeforcesSingleProblemParser(HTMLParser):
             self.case_file.write(clean_data)
             self.end_line = False
 
+        if self.start_header and self.start_title and not self.title_found:
+            self.problem_title = data.strip()
+            self.start_title = False
+            self.start_header = False
+            self.title_found = True
+
 
 def parse_single_problem(problem, letter):
     url = f'http://codeforces.com/problemset/problem/{problem}/{letter}'
@@ -76,7 +92,7 @@ def parse_single_problem(problem, letter):
     html = urlopen(url).read()
     parser = CodeforcesSingleProblemParser(problem, letter)
     parser.feed(html.decode('utf-8'))
-    return parser.case_counter
+    return parser.problem_title
 
 
 def main():
@@ -84,8 +100,17 @@ def main():
         print('USAGE: ./<this_script>.py <problem_number_part> <problem_letter_part>')
         exit(1)
 
+    problem_title = parse_single_problem(argv[1], argv[2])
+    title = re.split(r"^[A-Z]\. ", problem_title)
+    problem_title = title[1]
+
     target = f'{argv[1]}{argv[2]}.py'
-    x = parse_single_problem(argv[1], argv[2])
+    with open(f'{target}', 'r') as f:
+        lines = f.readlines()
+        with open(f'{target}', 'w+') as wf:
+            url = f'http://codeforces.com/problemset/problem/{argv[1]}/{argv[2]}'
+            lines.insert(0, f'"""{argv[1]}{argv[2]} - {problem_title}\n{url}\n\n"""\n')
+            wf.writelines(lines)
 
 
 if __name__ == '__main__':

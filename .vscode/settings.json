@@ -10,13 +10,13 @@
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": ".env\\Scripts\\flake8",
     "python.linting.flake8Args": [
-        "--max-line-length=120",
+        "--max-line-length=119",
         "--ignore=E402,F841,F401,E302,E305",
     ],
     "python.linting.pep8Args": [
         "--ignore=E303",
         "--ignore=E501",
-        "--max-line-length=140",
+        "--max-line-length=119",
         "--ignore=W391"
     ],
     "python.linting.pep8Enabled": false,
