@@ -1,15 +1,8 @@
-#! python
+# 50A - Domino piling
+# http://codeforces.com/problemset/problem/50/A
 
-# Problem #    : 50A
-# Created on   : 2019-01-14 21:29:26
-
-
-def Main():
-    m, n = map(int, input().split(' '))
-    val = m * n
-    cnt = int(val / 2)
-    print(cnt)
-
-
-if __name__ == '__main__':
-    Main()
+m, n = map(int, input().split())
+if m == 1 and n == 1:
+    print(0)
+else:
+    print(int(m * n) // 2)

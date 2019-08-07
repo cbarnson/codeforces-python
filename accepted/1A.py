@@ -1,14 +1,6 @@
-#!python
+# 1A - Theatre Square
+# http://codeforces.com/problemset/problem/1/A
 
-# Problem #    : 1A
-# Created on   : 2019-01-12 07:40:39
-
-def Main():
-    arr = [int(x) for x in input().split(' ')]
-    n, m, a = arr[0], arr[1], arr[2]
-    x = int(n / a) + bool(n % a)
-    y = int(m / a) + bool(m % a)
-    print(x * y)
-
-if __name__ == '__main__':
-    Main()
+n, m, a = map(int, input().split())
+t = ((n // a) + (1 if n % a != 0 else 0)) * ((m // a) + (1 if m % a != 0 else 0))
+print(t)

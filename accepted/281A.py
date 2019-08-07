@@ -1,14 +1,5 @@
-#! python
+# 281A - Word Capitalization
+# http://codeforces.com/problemset/problem/281/A
 
-# Problem #    : 281A
-# Created on   : 2019-01-14 22:07:58
-
-
-def Main():
-    s = input()
-    s = s[0].upper() + s[1:]
-    print(s)
-
-
-if __name__ == '__main__':
-    Main()
+s = input()
+print('' + s[0].upper() + s[1:])

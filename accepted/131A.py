@@ -1,18 +1,11 @@
-#! python
+# 131A - cAPS lOCK
+# http://codeforces.com/problemset/problem/131/A
 
-# Problem #    : 131A
-# Created on   : 2019-01-15 20:16:51
+s = input()
+ans = s
+if len(s) == 1 or s[1:].isupper():
+    ans = ''
+    for c in s:
+        ans += (c.upper() if c.islower() else c.lower())
 
-
-def Main():
-    l = input()
-    a, b = l[0], l[1:]
-
-    if l.isupper() or (a.islower() and (not b or b.isupper())):
-        print(l.swapcase())
-    else:
-        print(l)
-
-
-if __name__ == '__main__':
-    Main()
+print(ans)

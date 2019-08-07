@@ -1,18 +1,7 @@
-#! python
+# 158A - Next Round
+# http://codeforces.com/problemset/problem/158/A
 
-# Problem #    : 158A
-# Created on   : 2019-01-14 20:45:14
-
-def Main():
-    n, k = map(int, input().split(' '))
-    arr = list(map(int, input().split(' ')))
-    cnt = 0
-    for i in arr:
-        if i >= arr[k - 1] and i > 0:
-            cnt += 1
-    
-    print(cnt)
-        
-
-if __name__ == '__main__':
-    Main()
+n, k = map(int, input().split())
+arr = [int(x) for x in input().split()]
+next_round = [x for x in arr if (x > 0 and x >= arr[k - 1])]
+print(len(next_round))

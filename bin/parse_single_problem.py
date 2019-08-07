@@ -7,6 +7,11 @@ from subprocess import call
 from sys import argv
 from urllib.request import urlopen
 
+from BeautifulSoup import BeautifulSoup
+from soupselect import select
+import urllib
+
+
 # controls print statements containing input/output file contents for each case
 DEBUG = True
 
@@ -103,6 +108,10 @@ def main():
     problem_title = parse_single_problem(argv[1], argv[2])
     title = re.split(r"^[A-Z]\. ", problem_title)
     problem_title = title[1]
+
+    soup = BeautifulSoup(urllib.urlopen(f'http://codeforces.com/problemset/problem/{argv[1]}/{argv[2]}'))
+    x = select(soup, 'div.time-limit')
+    print(x)
 
     target = f'{argv[1]}{argv[2]}.py'
     with open(f'{target}', 'r') as f:

@@ -1,18 +1,11 @@
-#! python
+# 231A - Team
+# http://codeforces.com/problemset/problem/231/A
 
-# Problem #    : 231A
-# Created on   : 2019-01-14 21:19:31
+n = int(input())
+c = 0
+for i in range(n):
+    arr = [x for x in input().split() if int(x) == 1]
+    if len(arr) >= 2:
+        c += 1
 
-
-def Main():
-    n = int(input())
-    cnt = 0
-    for i in range(0, n):
-        if sum(list(map(int, input().split(' ')))) > 1: 
-            cnt += 1
-    else:
-        print(cnt)
-
-
-if __name__ == '__main__':
-    Main()
+print(c)

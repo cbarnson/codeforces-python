@@ -1,21 +1,13 @@
-#! python
+# 69A - Young Physicist
+# http://codeforces.com/problemset/problem/69/A
 
-# Problem #    : 69A
-# Created on   : 2019-01-15 20:08:32
+n = int(input())
+a = [0] * 3
 
+for i in range(n):
+    b = [int(x) for x in input().split()]
+    for j in range(3):
+        a[j] += b[j]
 
-def Main():
-    n, a = int(input()), [0, 0, 0]
-    for i in range(0, n):
-        dt = [int(x) for x in input().split(" ")]
-        for j in range(3):
-            a[j] += dt[j]
-    
-    if any(a):
-        print("NO")
-    else:
-        print("YES")
-
-
-if __name__ == '__main__':
-    Main()
+ans = [x for x in a if x == 0]
+print('YES' if len(ans) == 3 else 'NO')

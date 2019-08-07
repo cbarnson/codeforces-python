@@ -1,22 +1,9 @@
-#! python
+# 58A - Chat room
+# http://codeforces.com/problemset/problem/58/A
 
-# Problem #    : 58A
-# Created on   : 2019-01-14 23:43:53
-
-
-def Main():
-    s = input()
-    hello = 'hello'
-    j = 0
-    for i in range(len(hello)):
-        j = s.find(hello[i], j)
-        if j is -1:
-            print('NO')
-            return
-        j += 1
-
+import re
+s = input()
+if re.match(r'.*h.*e.*l.*l.*o.*', s):
     print('YES')
-
-
-if __name__ == '__main__':
-    Main()
+else:
+    print('NO')

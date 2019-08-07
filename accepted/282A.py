@@ -1,17 +1,10 @@
-#! python
+# 282A - Bit++
+# http://codeforces.com/problemset/problem/282/A
 
-# Problem #    : 282A
-# Created on   : 2019-01-14 21:33:20
+n = int(input())
+x = 0
+for i in range(n):
+    s = input()
+    x = x + (-1 if '-' in s else 1)
 
-
-def Main():
-    n = int(input())
-    x = 0
-    for i in range(0, n):
-        s = input()
-        x = x + 1 if '++' in s else x - 1
-    print(x)
-
-
-if __name__ == '__main__':
-    Main()
+print(x)

@@ -1,17 +1,7 @@
-#! python
+# 118A - String Task
+# http://codeforces.com/problemset/problem/118/A
 
-# Problem #    : 118A
-# Created on   : 2019-01-14 20:55:34
-
-def Main():
-    vowels = "AOYEUIaoyeui"
-    s = input().lower()
-    for let in set(s):
-        if let in vowels: 
-            s = s.replace(let, '')
-        elif let.isalpha():
-            s = s.replace(let, '.' + let)
-    print(s)
-    
-if __name__ == '__main__':
-    Main()
+v = 'aoyeui'
+s = input().lower()
+ans = [f'.{x}' for x in s if x not in v]
+print(''.join(ans))
